@@ -29,11 +29,11 @@
         @foreach ($images as $product)
         <tr>
             <td>{{ ++$i }}</td>
-            <td><img src="/files/{{ $image->image }}" width="100px"></td>
-            <td>{{ $image->name }}</td>
-            <td>{{ $image->detail }}</td>
+            <td><img src="/files/{{ $product->image }}" width="100px"></td>
+            <td>{{ $product->name }}</td>
+            <td>{{ $product->detail }}</td>
             <td>
-                <form action="{{ route('images.destroy',$image->id) }}" method="POST">
+                <form action="{{ route('images.destroy',$product->id) }}" method="POST">
 
                     <a class="btn btn-info" href="{{ route('images.show',$product->id) }}">Show</a>
 

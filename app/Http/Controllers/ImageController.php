@@ -37,7 +37,9 @@ class ImageController extends Controller
             // $path = $request->file('image')->storeAs(
             //     'storage', $input['name']
             // );
-            Storage::putFileAs('files', $image);
+            $mime = Storage::mimeType($input['name']);
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            Storage::putFileAs('files', $image, $input['name'].$mime);
         }
 
         ImageStorage::create($input);
